@@ -26,6 +26,17 @@ const fileName = "target.txt";
 
 // Synchronous programming
 
-const data = fs.readFileSync(fileName, 'utf-8');
-console.log(data);
-console.log("NodeJS is sync programming...");
+// const data = fs.readFileSync(fileName, 'utf-8');
+// console.log(data);
+// console.log("NodeJS is sync programming...");
+
+
+// Functional approach
+const errHandler = err => console.log(err);
+const dataHandler = data => console.log(data.toString());
+fs.readFile(fileName, (err, data) => {
+  if(err) errHandler(err);
+  console.log(data.toString());
+});
+
+console.log("NodeJS async programming...");
