@@ -2,10 +2,10 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3005;
 
-app.get('/', (req, res) => {
-    res.send("Hello World from NODEJS")
-  }
-);
+// bring in postRoutes
+const postRoutes = require('./routes/post');
+
+app.get('/', postRoutes.getPosts);
 
 app.listen(port, (err, done) => {
     if(err){
