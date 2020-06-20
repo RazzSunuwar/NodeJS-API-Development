@@ -6,11 +6,13 @@ const server = http.createServer((req, res) =>{
     res.send('Hello World');
     res.end();
 });
+
 server.listen(port, (err, done) => {
     if(err){
         console.log(`Error on server listening at port ${port}`);
     } return console.log(`Success on server listening at port ${port}`);
 })
+
 let total = sum(10, 20);
 console.log("Total:", total);    //Total: 30
 
