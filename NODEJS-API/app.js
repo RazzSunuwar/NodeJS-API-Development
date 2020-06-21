@@ -4,7 +4,7 @@ const port = process.env.PORT || 3005;
 const morgan = require("morgan");
 
 // bring in postRoutes
-const postRoutes = require('./routes/post');
+const { getPosts } = require('./routes/post');
 
 const myOwnMiddlere = (req, res, next) => {
   console.log("Middleware applied");
@@ -13,9 +13,10 @@ const myOwnMiddlere = (req, res, next) => {
 
 
 // Middleware
-app.use(morgan("start"));
+app.use(morgan("dev"));
 // app.get('/', postRoutes.getPosts);
 app.use(myOwnMiddlere);
+app.get('/', getPosts);
 
 app.listen(port, (err, done) => {
     if(err){
