@@ -3,6 +3,17 @@ const app = express();
 const mongoose = require('mongoose');
 const port = process.env.PORT || 3005;
 const morgan = require("morgan");
+const dotenv = require('dotenv');
+dotenv.config();
+
+
+//db
+mongoose.connect(process.env.MONGO_URI, { useUnifiedTopology: true, useNewUrlParser: true })
+.then(() => console.log("DB Connected"));
+
+mongoose.connection.on("error", err => {
+  console.log(`Db connection error: ${err.message}`);
+});
 
 // bring in postRoutes
 const postRoutes = require('./routes/post');
