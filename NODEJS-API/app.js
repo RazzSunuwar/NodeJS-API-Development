@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const mongoose = require('mongoose');
 const port = process.env.PORT || 3005;
 const morgan = require("morgan");
 
@@ -24,6 +25,4 @@ app.listen(port, (err, done) => {
       console.log(`Error listening at port ${port}`);
     } return console.log(`Success listening at port ${port}`)
   }
-); {
-
-}
+);
